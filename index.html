@@ -1,0 +1,266 @@
+<!doctype html>
+<html lang="en">
+  <head>   
+	<link
+    rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+  />
+	<style> 
+        #button{ 
+            width: 100px; 
+
+            height: 100px; 
+
+            background: red; 
+
+            -webkit-transition: width 2s, height 4s; /* For Safari 3.1 to 6.0 */ 
+
+            transition: width 2s, height 4s; 
+        } 
+        /* Safari 4.0 - 8.0 */ 
+        @-webkit-keyframes data { 
+            from { 
+                background-color: rgb(58, 16, 245); 
+            } 
+            to { 
+                background-color: rgb(2, 4, 155); 
+            } 
+        } 
+        /* Standard syntax */ 
+        @keyframes data { 
+            from { 
+                background-color: rgb(58, 16, 245);  
+            } 
+            to { 
+				background-color: rgb(2, 4, 155); 
+            } 
+        } 
+    </style>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+	<script>
+		$(document).ready(function(){
+		  $("p").click(function(){
+			$(this).hide();
+		  });
+		});
+		</script>
+  	<title>Order Infomation</title>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
+	<link href='https://fonts.googleapis.com/css?family=Roboto:400,100,300,700' rel='stylesheet' type='text/css'>
+
+	<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+	<link rel="stylesheet" href="css/style.css">
+
+	</head>
+	<body>
+	<section class="ftco-section">
+		<div class="container">
+			<div class="row justify-content-center">
+				<div class="col-md-6 text-center mb-5">
+					<h2 class="heading-section">Order Information</h2>
+				</div>
+			</div>
+			<div class="row justify-content-center">
+				<div class="col-lg-10 col-md-12">
+					<div class="wrapper">
+						<div class="row no-gutters">
+							<div class="col-md-7 d-flex align-items-stretch">
+								<div class="contact-wrap w-100 p-md-5 p-4">
+									<h3 class="mb-4">Order Data</h3>
+									<div id="form-message-warning" class="mb-4"></div> 
+				      		<div id="form-message-success" class="mb-4">
+				            Your message was sent, thank you!
+				      		</div>
+									<form method="GET" id="contactForm" name="contactForm" onsubmit="return validateForm()" action="/receivepage.html">
+										<div class="row">
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="text" class="form-control" name="fname" id="name" placeholder="First Name">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+													<input type="text" class="form-control" name="lname" id="name" placeholder="Last Name">
+												</div>
+											</div>
+											
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="tel" pattern=”^\d{3}-\d{3}-\d{4}$” class="form-control" name="pnumber" placeholder="xxx-xxx-xxxx">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="text" class="form-control" name="destination" id="subject" placeholder="Destination">
+												</div>
+											</div>
+											<div class="col-md-6">
+												<div class="form-group">
+																										<input id="date_picker" type="date" class="form-control">
+    <script language="javascript">
+        var today = new Date();
+        var dd = String(today.getDate()).padStart(2, '0');
+        var mm = String(today.getMonth() + 1).padStart(2, '0');
+        var yyyy = today.getFullYear();
+
+        today = yyyy + '-' + mm + '-' + dd;
+        $('#date_picker').attr('min',today);
+    </script>
+												</div>
+											</div>
+											<div class="col-md-6"> 
+												<div class="form-group">
+													<input type="time" class="form-control" name="time" id="email" placeholder="Destination">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<input type="number" class="form-control" name="quality" id="subject" placeholder="Quantity" min="1">
+												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<select name="payment" id="payment" class="form-control">
+														<option>Payment Method</option>
+														<option value="cash">Cash</option>
+														<option value="credit">Credit Card</option>
+													  </select>												</div>
+											</div>
+											<div class="col-md-12">
+												<div class="form-group">
+													<button type="submit" class="btn btn-primary">Send Order</button>
+													<div class="submitting"></div>
+												</div>
+											</div>
+										</div>
+									</form>
+								</div>
+							</div>
+							<div class="col-md-5 d-flex align-items-stretch">
+								<div class="info-wrap bg-primary w-100 p-lg-5 p-4">
+									<h3 class="animate__animated animate__bounce">Order Summary</h3>
+				        	<div class="dbox w-100 d-flex align-items-start">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-map-marker"></span>
+				        		</div>
+				        		<div class="text pl-3">
+					            <p class="animate__animated animate__bounce"><span>Destination:</span> 198 West 21th Street, Suite 721 New York NY 10016 [x]</p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-phone"></span>
+				        		</div>
+				        		<div class="text pl-3">
+									<p class="animate__animated animate__bounce"><span>Phone:</span> <a href="tel://1234567920">+ 1235 2355 98</a>[x]</p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-paper-plane"></span>
+				        		</div>
+				        		<div class="text pl-3">
+									<p class="animate__animated animate__bounce"><span>Email:</span> <a href="mailto:info@yoursite.com">info@yoursite.com</a>[x]</p>
+					          </div>
+				          </div>
+				        	<div class="dbox w-100 d-flex align-items-center">
+				        		<div class="icon d-flex align-items-center justify-content-center">
+				        			<span class="fa fa-globe"></span>
+				        		</div>
+				        		<div class="text pl-3">
+									<p class="animate__animated animate__bounce"><span>Website</span> <a href="#">yoursite.com</a> [x]</p>
+					          </div>
+				          </div>
+						  <select name="" id="select" onClick="hello();" class="form-select">
+							<option>Select</option>
+							<option style="background-color: #CD5C5C;">#CD5C5C</option>
+							<option style="background-color: #F08080;">#F08080</option>
+							<option style="background-color: #FA8072;">#FA8072</option>
+							<option style="background-color: #E9967A;">#E9967A</option>
+							<option style="background-color: #FFA07A;">#FFA07A</option>
+						</select>
+			          </div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
+	<script src="js/jquery.min.js"></script>
+  <script src="js/popper.js"></script>
+  <script src="js/bootstrap.min.js"></script>
+  <script src="js/jquery.validate.min.js"></script>
+  <script src="js/main.js"></script>
+
+	</body>
+</html>
+
+<script>
+	function validateForm() {
+		if (document.forms["contactForm"]["fname"].value == "") {
+			alert("Nama Tidak Boleh Kosong");
+			document.forms["contactForm"]["fname"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["lname"].value == "") {
+			alert("Email Tidak Boleh Kosong");
+			document.forms["contactForm"]["lname"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["pnumber"].value == "") {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["pnumber"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["destination"].value == "") {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["destination"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["date"].value == "") {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["date"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["time"].value == "") {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["time"].focus();
+			return false;
+		}
+		if (document.forms["contactForm"]["quality"].value == "") {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["quality"].focus();
+			return false;
+		}if (document.forms["contactForm"]["payment"].selectedIndex < 1) {
+			alert("Pilih Jurusan.");
+			document.forms["contactForm"]["payment"].focus();
+			return false;
+		}
+	}
+</script>
+
+<script>
+function hello(){
+let d = document.getElementById("select");
+let text = d.options[d.selectedIndex].value;
+document.body.style.backgroundColor=text;
+}
+
+
+function SetMinDate() {
+    var now = new Date();
+
+    var day = ("0" + now.getDate()).slice(-2);
+    var month = ("0" + (now.getMonth() + 1)).slice(-2);
+
+    var today = now.getFullYear() + "-" + (month) + "-" + (day);
+
+    $('#ExpiryDate').val(today);
+    $('#ExpiryDate').attr('min', today); }
+
+	</script>
+
